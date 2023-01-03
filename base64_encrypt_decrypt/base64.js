@@ -9,8 +9,9 @@ console.log(colors.magenta('-----------------------------------'))
 argv['node','index.js', "code"];
 let encrypted = base64.encode(argv[2]);
 let decrypted = base64.decode(argv[2]);
+let pattern = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$/;
 
-if (argv[2].includes('=')){
+if (argv[2].match(pattern)){
     console.log(`${colors.red('Your text is successfuly decrypted ')}🔓 : ${decrypted.bgRed} `);
 }else{
     console.log(`${colors.green('Your text is successfuly encrypted ')}🔐 : ${encrypted.bgGreen} `);
